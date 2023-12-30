@@ -17,6 +17,7 @@
 void BUTTON_CONF(void);
 void Delay(void);
 void UART3_CONF(void);
+void UART3_TX_EN(void);
 void PRINT_TAB(char Tab[]);
 
 void BUTTON_CONF(void){
@@ -50,12 +51,15 @@ void UART3_CONF(void){
 	//BAUD RATE - 115200
 	USART3 -> BRR = 16000000 / 115200;
 	//FRAME 8N1
+}
+
+void UART3_TX_EN(void){
 	//USART ENABLE
 	USART3 -> CR1 |= USART_CR1_UE;
 	//TRANSMITTER ENABLE
 	USART3 -> CR1 |= USART_CR1_TE;
 	//RECEIVER ENABLE
-	USART3 -> CR1 |= USART_CR1_RE;
+	//USART3 -> CR1 |= USART_CR1_RE;
 }
 
 void PRINT_TAB(char Tab[]){

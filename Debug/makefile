@@ -59,8 +59,8 @@ all: main-build
 main-build: STM32_UART.elf secondary-outputs
 
 # Tool invocations
-STM32_UART.elf STM32_UART.map: $(OBJS) $(USER_OBJS) C:\Users\ahadz\OneDrive\Pulpit\Projekty_2\STM32\Basic\ STM\STM32_UART\STM32F746ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "STM32_UART.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\ahadz\OneDrive\Pulpit\Projekty_2\STM32\Basic STM\STM32_UART\STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+STM32_UART.elf STM32_UART.map: $(OBJS) $(USER_OBJS) C:\Users\ahadz\OneDrive\Pulpit\Projekty_2\STM32\STM32_UART\STM32F746ZGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "STM32_UART.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m7 -T"C:\Users\ahadz\OneDrive\Pulpit\Projekty_2\STM32\STM32_UART\STM32F746ZGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
