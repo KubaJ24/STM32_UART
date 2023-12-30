@@ -22,6 +22,7 @@
 //PD9 - USART3_RX
 
 char Tab[5] = {'H', 'E', 'L', 'L', 'O'};
+char *str = "Hello World\n";
 
 int main(void)
 {

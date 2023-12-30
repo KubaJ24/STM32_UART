@@ -18,6 +18,7 @@ void BUTTON_CONF(void);
 void Delay(void);
 void UART3_CONF(void);
 void UART3_TX_EN(void);
+void DMA1_UART3_TX_CONF(void);
 void PRINT_TAB(char Tab[]);
 
 void BUTTON_CONF(void){
@@ -60,6 +61,17 @@ void UART3_TX_EN(void){
 	USART3 -> CR1 |= USART_CR1_TE;
 	//RECEIVER ENABLE
 	//USART3 -> CR1 |= USART_CR1_RE;
+}
+
+void DMA1_UART3_TX_CONF(void){
+	//UART3_TX -> DMA1 CHANNEL 4
+	DMA1->SxCR |= DMA1_SxCR_CHSEL_2;
+
+	//DMA1 CLOCK ENABLE
+	RCC->AHB1ENR |= RCC_AHB1ENR_DMA1EN;
+
+	//SET PERIFFERAL ADDRESS TO UART DATA REGISTER
+
 }
 
 void PRINT_TAB(char Tab[]){
